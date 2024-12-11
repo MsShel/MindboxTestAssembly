@@ -1,6 +1,6 @@
-﻿using GeometryLibrary.Figures;
+﻿using GeometryLibrary.Interfaces;
 
-namespace GeometryLibrary
+namespace GeometryLibrary.Providers
 {
     /// <summary>
     /// Provides a method for calculating the area of a given shape.
@@ -14,7 +14,7 @@ namespace GeometryLibrary
         /// <param name="shape">An object that implements the IAreaCalculatetable interface, representing the shape.</param>
         /// <returns>The area of the shape as a <c>double</c>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when the provided shape is null.</exception>
-        public static double CalculateArea(IAreaCalculatetable shape)
+        public static double CalculateArea(IAreaCalculatable shape)
         {
             if (shape == null)
             {

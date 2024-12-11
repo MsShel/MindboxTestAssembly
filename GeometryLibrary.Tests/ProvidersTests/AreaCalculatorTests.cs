@@ -1,6 +1,8 @@
 ﻿using GeometryLibrary.Figures;
+using GeometryLibrary.Interfaces;
+using GeometryLibrary.Providers;
 
-namespace GeometryLibrary.Tests
+namespace GeometryLibrary.Tests.ProvidersTests
 {
     /// <summary>
     /// This class contains unit tests for the AreaCalculator class, 
@@ -39,7 +41,7 @@ namespace GeometryLibrary.Tests
         [Fact]
         public void CalculateArea_InvalidShape_ThrowsException()
         {
-            IAreaCalculatetable nullShape = null;
+            IAreaCalculatable nullShape = null;
 
             Assert.Throws<ArgumentNullException>(() => AreaCalculator.CalculateArea(nullShape));
         }

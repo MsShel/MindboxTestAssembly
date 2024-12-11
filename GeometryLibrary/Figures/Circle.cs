@@ -1,11 +1,16 @@
-﻿namespace GeometryLibrary.Figures
+﻿using GeometryLibrary.Interfaces;
+
+namespace GeometryLibrary.Figures
 {
     /// <summary>
     /// Represents a circle and provides a method to calculate its area.
     /// </summary>
-    public class Circle : IAreaCalculatetable
+    public class Circle : IAreaCalculatable
     {
-        private readonly double _radius;
+        /// <summary>
+        /// The radius of the circle.
+        /// </summary>
+        public double Radius { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Circle"/> class with the specified radius.
@@ -16,7 +21,7 @@
         {
             if (radius < 0)
                 throw new ArgumentException("Radius must not be negative.");
-            _radius = radius;
+            Radius = radius;
         }
 
         /// <summary>
@@ -25,7 +30,7 @@
         /// <returns>The area of the circle.</returns>
         public double CalculateArea()
         {
-            return Math.PI * _radius * _radius;
+            return Math.PI * Radius * Radius;
         }
     }
 }
