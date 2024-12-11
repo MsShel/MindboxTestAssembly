@@ -1,11 +1,11 @@
-﻿namespace GeometryLibrary
+﻿namespace GeometryLibrary.Interfaces
 {
     /// <summary>
-    /// Interface for shapes that can calculate their area.
+    /// Interface for objects, shapes, or figures that can calculate their area.
     /// Any class that implements this interface must provide an implementation 
     /// for the CalculateArea method to compute the area of the shape.
     /// </summary>
-    public interface IAreaCalculatetable
+    public interface IAreaCalculatable
     {
         /// <summary>
         /// Method to calculate the area of the shape.

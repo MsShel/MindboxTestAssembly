@@ -1,6 +1,6 @@
 using GeometryLibrary.Figures;
 
-namespace GeometryLibrary.Tests
+namespace GeometryLibrary.Tests.FiguresTests
 {
     /// <summary>
     /// Contains unit tests for the <see cref="Triangle"/> class to validate its functionality.

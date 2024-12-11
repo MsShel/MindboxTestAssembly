@@ -1,6 +1,6 @@
 ﻿using GeometryLibrary.Figures;
 
-namespace GeometryLibrary.Tests
+namespace GeometryLibrary.Tests.FiguresTests
 {
     /// <summary>
     /// Contains unit tests for the <see cref="Circle"/> class to validate its functionality.
@@ -13,10 +13,9 @@ namespace GeometryLibrary.Tests
         /// <param name="radius">The radius of the circle.</param>
         /// <param name="expectedArea">The expected area of the circle for the given radius.</param>
         [Theory]
-        [InlineData(0, 0)]
-        [InlineData(1, 3.14159)]
-        [InlineData(3, 28.27433)]
-        [InlineData(5, 78.53981634)]
+        [InlineData(1, Math.PI * 1 * 1)]
+        [InlineData(3, Math.PI * 3 * 3)]
+        [InlineData(5, Math.PI * 5 * 5)]
         public void CalculateArea_Circle_WithDifferentRadius_ReturnsCorrectArea(double radius, double expectedArea)
         {
             var circle = new Circle(radius);

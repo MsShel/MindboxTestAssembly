@@ -1,15 +1,27 @@
-﻿namespace GeometryLibrary.Figures
+﻿using GeometryLibrary.Interfaces;
+
+namespace GeometryLibrary.Figures
 {
     /// <summary>
     /// Represents a triangle with three sides and provides methods for calculating its area and checking if it's a right triangle.
     /// </summary>
-    public class Triangle : IAreaCalculatetable
+    public class Triangle : IAreaCalculatable
     {
-        private readonly double _sideA;
-        private readonly double _sideB;
-        private readonly double _sideC;
+        /// <summary>
+        /// The length of the first side of the triangle.
+        /// </summary>
+        public double SideA { get; }
+        /// <summary>
+        /// The length of the second side of the triangle.
+        /// </summary>
+        public double SideB { get; }
+        /// <summary>
+        /// The length of the third side of the triangle.
+        /// </summary>
+        public double SideC;
 
         // Measurement error threshold for checking if the triangle is right-angled.
+        // This precision is chosen to accommodate floating-point arithmetic limitations.
         private const double MeasurementError = 1e-10;
 
         /// <summary>
@@ -26,9 +38,9 @@
             if (sideA + sideB <= sideC || sideA + sideC <= sideB || sideB + sideC <= sideA)
                 throw new ArgumentException("The sum of any two sides must be greater than the third side.");
 
-            _sideA = sideA;
-            _sideB = sideB;
-            _sideC = sideC;
+            SideA = sideA;
+            SideB = sideB;
+            SideC = sideC;
         }
 
         /// <summary>
@@ -37,8 +49,8 @@
         /// <returns>The area of the triangle.</returns>
         public double CalculateArea()
         {
-            var semiPerimeter = (_sideA + _sideB + _sideC) / 2;
-            return Math.Sqrt(semiPerimeter * (semiPerimeter - _sideA) * (semiPerimeter - _sideB) * (semiPerimeter - _sideC));
+            var semiPerimeter = (SideA + SideB + SideC) / 2;
+            return Math.Sqrt(semiPerimeter * (semiPerimeter - SideA) * (semiPerimeter - SideB) * (semiPerimeter - SideC));
         }
 
         /// <summary>
@@ -47,7 +59,7 @@
         /// <returns><c>true</c> if the triangle is a right triangle, otherwise <c>false</c>.</returns>
         public bool IsRightTriangle()
         {
-            double[] sides = [_sideA, _sideB, _sideC];
+            double[] sides = [SideA, SideB, SideC];
             Array.Sort(sides);
             return Math.Abs(sides[2] * sides[2] - (sides[0] * sides[0] + sides[1] * sides[1])) < MeasurementError;
         }
